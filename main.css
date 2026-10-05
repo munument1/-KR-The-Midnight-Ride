@@ -35,12 +35,25 @@
 
 @media only screen and (max-width: 700px) {
   .header {
-    padding-left: 0.65em;
-    padding-right: 0.65em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    min-width: 0;
+  }
+
+  .headerMenu {
+    flex: 0 0 3.25em;
+    min-width: 3.25em;
   }
 
   .headerMenu img {
-    padding-right: 0.6em;
+    width: 3.25em;
+    height: 3.25em;
+    padding-right: 0.5em;
+  }
+
+  .headerTitle {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .headerMenu + .headerTitle {
@@ -50,6 +63,12 @@
   .headerTitle a {
     font-size: 1.5em;
     white-space: nowrap;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .headerTitle a {
+    font-size: 1.35em;
   }
 }
 

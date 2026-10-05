@@ -1,14 +1,55 @@
-document.addEventListener('DOMContentLoaded', setupKoreanResponsiveTitle);
-window.addEventListener('resize', setupKoreanResponsiveTitle);
+document.addEventListener('DOMContentLoaded', function () {
+    setupResponsiveElements();
+    window.addEventListener('resize', setupResponsiveElements);
+});
 
-function setupKoreanResponsiveTitle() {
-    const headerTitle = document.getElementById('headerTitle');
-    if (!headerTitle) return;
+function setupResponsiveElements() {
+    const abbreviations = {
+        // Header titles
+        "ModdingLinked": "ML",
+        "Viva New Vegas": "VNV",
+        "The Best of Times": "TBoT",
+        "The Midnight Ride": "TMR",
+        "The Midnight Ride 한국어": "TMR 한국어",
+        "A Dragonborn's Fate": "DBF",
 
-    const fullTitle = 'The Midnight Ride 한국어';
-    const shortTitle = 'TMR 한국어';
+        // Header links
+        "Fallout: New Vegas": "FNV",
+        "Tale of Two Wastelands": "TTW",
+        "Fallout 4": "FO4",
+        "Skyrim SE": "SSE"
+    };
+
     const isNarrow = window.innerWidth < 900;
 
-    headerTitle.setAttribute('data-full-title', fullTitle);
-    headerTitle.textContent = isNarrow ? shortTitle : fullTitle;
+    const headerTitle = document.getElementById('headerTitle');
+    if (headerTitle) {
+        const fullTitle = headerTitle.getAttribute('data-full-title') || headerTitle.textContent;
+        const shortTitle = abbreviations[fullTitle] || fullTitle.split(' ').map(word => word[0]).join('');
+
+        if (isNarrow) {
+            if (headerTitle.textContent !== shortTitle) {
+                headerTitle.textContent = shortTitle;
+                if (!headerTitle.hasAttribute('data-full-title')) {
+                    headerTitle.setAttribute('data-full-title', fullTitle);
+                }
+            }
+        } else if (headerTitle.textContent !== fullTitle) {
+            headerTitle.textContent = fullTitle;
+        }
+    }
+
+    const headerLinks = document.getElementById('headerLinks');
+    if (headerLinks) {
+        headerLinks.querySelectorAll('a').forEach(link => {
+            const fullText = link.getAttribute('data-full-text') || link.textContent;
+
+            if (!link.hasAttribute('data-full-text')) {
+                link.setAttribute('data-full-text', fullText);
+            }
+
+            const abbr = abbreviations[fullText] || fullText;
+            link.textContent = isNarrow ? abbr : fullText;
+        });
+    }
 }
