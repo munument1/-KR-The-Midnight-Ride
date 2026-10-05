@@ -25,3 +25,26 @@
 @import "submodule/shared/css/benchmarkCharts.css";
 @import "submodule/shared/css/cards.css";
 @import "submodule/shared/css/coco.css";
+
+/* KR localization overrides */
+.kr-donation-note {
+  max-width: 34em;
+  margin: 0 0 0.75em 0;
+  line-height: 1.5;
+}
+
+@media only screen and (max-width: 700px) {
+  .header {
+    padding-left: 0.65em;
+    padding-right: 0.65em;
+  }
+
+  .headerMenu img {
+    padding-right: 0.6em;
+  }
+
+  .headerTitle a {
+    font-size: 1.5em;
+    white-space: nowrap;
+  }
+}
