@@ -48,3 +48,10 @@
     white-space: nowrap;
   }
 }
+
+.kr-unofficial-notice {
+  text-align: center;
+  margin: 0.75em auto 1.25em;
+  max-width: 42em;
+  font-weight: 600;
+}

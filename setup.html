@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/Coco/Head Logo.webp">
 
-    <title>Initial Setup | The Midnight Ride</title>
+    <title>초기 설정 | The Midnight Ride 한국어</title>
 
     <meta name="keywords" content="
     Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
@@ -24,15 +24,15 @@
     Tale of Two Wastelands, TTW,
     Skyrim Special Edition, Skyrim SE, SSE">
 
-    <meta name="description" content="Clean install and initial launch of the vanilla game.">
+    <meta name="description" content="Fallout 4 클린 설치와 바닐라 게임의 초기 실행을 안내합니다.">
     <meta http-equiv='content-language' content='ko-KR'>
     <meta name="twitter:card" value="summary_large_image">
     <meta property="og:site_name" content="The Midnight Ride 비공식 한국어 번역">
-    <meta property="og:title" content="The Midnight Ride">
+    <meta property="og:title" content="The Midnight Ride 한국어">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://themidnightride.moddinglinked.com">
     <meta property="og:image" content="https://themidnightride.moddinglinked.com/img/Others/Card.webp">
-    <meta property="og:description" content="Clean install and initial launch of the vanilla game.">
+    <meta property="og:description" content="Fallout 4 클린 설치와 바닐라 게임의 초기 실행을 안내합니다.">
 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#292c35">
     <meta name="darkreader-lock">
@@ -210,43 +210,36 @@
         <div class="content">
 
             <span id="Preparation" class="section">
-                <h2 onclick="location.href='#Preparation'">Preparation</h2>
+                <h2 onclick="location.href='#Preparation'">준비</h2>
 
                 <div class="card" id="CPPRedists" title="Installing Redistributables">
-                    <h3>Installing VC++ Redistributables</h3>
-                    <p>Most engine mods and tools require latest Visual C++ Redistributables to be installed. Windows' official package manager, <strong>Winget</strong>, provides a quick and safe way to update all of them. We use the Microsoft Store to update it to the latest version and to make sure that the script works.</p>
+                    <h3>VC++ 재배포 패키지 설치</h3>
+                    <p>대부분의 엔진 모드와 도구는 최신 Visual C++ Redistributables가 필요합니다. Windows 공식 패키지 관리자인 <strong>Winget</strong>을 사용하면 필요한 패키지를 빠르고 안전하게 업데이트할 수 있습니다. 스크립트가 정상 작동하도록 먼저 Microsoft Store를 통해 Winget을 최신 상태로 맞춥니다.</p>
 
                     <div class="card-red">
-                        <p>
-                            Failure to have latest versions installed will result in an immediate crash when launching the game or modding tools.
-                            <br>
-                            <br>
-                            Please install the redistributables even if you have them installed already, as they are often outdated.
-                        </p>
+                        <p>최신 버전이 설치되어 있지 않으면 게임이나 모딩 도구를 실행하자마자 충돌할 수 있습니다.<br><br>이미 설치되어 있더라도 오래된 버전일 수 있으니 재배포 패키지를 다시 설치해 주세요.</p>
                     </div>
 
                     <ol>
-                        <li>Open the <a href="ms-windows-store://home" target="_blank">Microsoft Store</a>.</li>
-                        <li>Head to the <b>Updates & downloads</b> section.</li>
-                        <li><b>Check for updates</b>, then let everything update.</li>
-                        <li>Once finished, open the Command Prompt and enter the following:</li>
+                        <li> <a href="ms-windows-store://home" target="_blank">Microsoft Store</a>를 엽니다.</li>
+                        <li><b>Updates &amp; downloads</b>로 이동합니다.</li>
+                        <li><b>Check for updates</b>를 눌러 모든 항목을 업데이트합니다.</li>
+                        <li>완료되면 Command Prompt를 열고 아래 명령을 입력합니다:</li>
                         <textarea readonly="readonly" style="height: 14em; width: 95%;" onclick="this.focus();this.select()">
 winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2005.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2008.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2008.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2010.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2010.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2012.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2012.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2013.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2013.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2015+.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2015+.x64 -e --force -h --accept-package-agreements</textarea>
-                        <li>Restart your PC.</li>
+                        <li>PC를 재시작합니다.</li>
                     </ol>
                 </div>
 
                 <div class="card" id="FileExtensions" title="Enabling File Extensions">
-                    <h3>Enabling File Extensions</h3>
+                    <h3>파일 확장자 표시</h3>
+                    <p>시작하기 전에 Windows에서 파일 확장자가 보이도록 설정합니다.</p>
                     <p>
-                        Before we start, it is important to enable file extensions in Windows.
-                    </p>
-                    <p>
-                        By default, File Explorer will not show file extensions (such as .exe, .dll, or .esp). These extensions are very important when going through the guide, so it is highly recommended to enable visible file extensions:
+                        기본 설정에서는 File Explorer가 .exe, .dll, .esp 같은 확장자를 표시하지 않습니다. 가이드에서 파일 종류를 구분하는 데 매우 중요하므로 확장자 표시를 켜는 것을 강력히 권장합니다:
                     <ol>
-                        <li>Open File Explorer.</li>
-                        <li>Select the <b>View</b> tab at the top.</li>
-                        <li>Enable <strong>File name extensions</strong> in the <b>Show</b> section.</li>
+                        <li>File Explorer를 엽니다.</li>
+                        <li>상단의 <b>View</b> 탭을 선택합니다.</li>
+                        <li><b>Show</b> 항목에서 <strong>File name extensions</strong>를 켭니다.</li>
                         <div class="image-container width-90">
                             <img class="content-img" src="./img/Others/File Extensions.webp" alt="Show file extensions">
                             <div class="resize-overlay expand"></div>
@@ -257,75 +250,62 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
             </span>
 
             <span id="Installation" class="section">
-                <h2 onclick="location.href='#Installation'">Installation</h2>
+                <h2 onclick="location.href='#Installation'">게임 설치</h2>
 
                 <div class="card" id="InstallLocation">
-                    <h3>Choosing a Location</h3>
+                    <h3>설치 위치 선택</h3>
                     <p>
-                        <strong>A clean installation</strong> is not only required to get rid of any potential leftover mod files, but also to make sure the game is installed in a safe location. Here is what you need to know when choosing where to install your game:
+                        <strong>클린 설치</strong>는 이전 모드 파일을 완전히 제거하기 위해서뿐 아니라 게임을 안전한 위치에 설치하기 위해서도 필요합니다. 설치 위치를 정할 때 다음 내용을 확인하세요:
                         <br>
                     <ul>
-                        <li>
-                            <b>Avoid any default Windows folders</b>: This includes but is not limited to <span class="card-basic">C:\Program Files</span>, <span class="card-basic">C:\Program Files x86</span>, your <span class="card-basic">Desktop</span> and your <span class="card-basic">Documents</span> folders.
-                            <br>
-                            This is because users lack write access to Program Files, while Desktop and Documents are often managed by OneDrive. This can cause many issues with the game and any modding tools.
-                            <br>
-                            <br>
-                            An example of a safe location is <span class="card-basic">C:\Games</span>
-                        </li>
-                        <li>
-                            <b>Install on an SSD if possible</b>: Having the game on an SSD will drastically improve loading times and decrease stuttering.
-                        </li>
+                        <li><b>Windows 기본 폴더는 피합니다</b>: <span class="card-basic">C:\Program Files</span>, <span class="card-basic">C:\Program Files x86</span>, <span class="card-basic">Desktop</span>, <span class="card-basic">Documents</span> 등이 해당합니다.<br>Program Files는 쓰기 권한 제약이 있고, Desktop과 Documents는 OneDrive가 관리하는 경우가 많아 게임과 모딩 도구에 문제를 일으킬 수 있습니다.<br><br>안전한 위치의 예: <span class="card-basic">C:\Games</span></li>
+                        <li><b>가능하면 SSD에 설치합니다</b>: 로딩 시간이 크게 줄고 끊김 현상도 완화됩니다.</li>
                     </ul>
                     </p>
                 </div>
 
                 <div class="card" id="Uninstall">
-                    <h3>Uninstalling the Game</h3>
+                    <h3>기존 게임 제거</h3>
                     <p>
 
                     <div class="card-yellow">
-                        <p>
-                            If you never installed the game before, go directly to the next section.
-                        </p>
+                        <p>Fallout 4를 한 번도 설치한 적이 없다면 다음 항목으로 넘어가세요.</p>
                     </div>
 
                     <div class="card-red">
-                        <p>
-                            If you already uninstalled the game, make sure to follow step 4 and 5 to ensure there are no leftovers.
-                        </p>
+                        <p>이미 게임을 제거했다면 남은 파일이 없도록 4번과 5번 단계는 반드시 확인하세요.</p>
                     </div>
 
                     <ol>
-                        <li>Open Steam and go to your <strong>Library</strong>.</li>
-                        <li>Find <strong>Fallout 4</strong> in the list.</li>
-                        <li>Right-click on it and select <strong>Manage</strong> -> <strong>Uninstall</strong>.</li>
-                        <li>Navigate to <span class="card-basic">Steam\steamapps\common</span> and, if present, delete the <strong>Fallout 4</strong> folder.</li>
-                        <li>Navigate to <span class="card-basic">Documents\My Games\Fallout 4</span> and delete all INI files inside it.</li>
+                        <li>Steam을 열고 <strong>Library</strong>로 이동합니다.</li>
+                        <li>목록에서 <strong>Fallout 4</strong>를 찾습니다.</li>
+                        <li>우클릭한 뒤 <strong>Manage</strong> → <strong>Uninstall</strong>을 선택합니다.</li>
+                        <li><span class="card-basic">Steam\steamapps\common</span>으로 이동해 <strong>Fallout 4</strong> 폴더가 남아 있다면 삭제합니다.</li>
+                        <li><span class="card-basic">Documents\My Games\Fallout 4</span>로 이동해 안에 있는 INI 파일을 모두 삭제합니다.</li>
                     </ol>
                     </p>
                 </div>
 
                 <div class="card" id="SteamLibrary">
-                    <h3>Creating a new Steam library</h3>
+                    <h3>새 Steam 라이브러리 만들기</h3>
                     <p>
 
                     <div class="card-yellow">
                         <p>
-                            It is strongly recommended to install the games outside of any default Windows folders (such as <span class="card-basic">Program Files (x86)</span>), as the the strict Windows file protections of these folders can break certain mods/tools. Instead, we will use a tool called Steam Library Setup Tool to create a new Steam library folder outside of any default Windows folders.
+                            엄격한 파일 보호 때문에 일부 모드와 도구가 오작동할 수 있으므로 <span class="card-basic">Program Files (x86)</span> 같은 Windows 기본 폴더 밖에 게임을 설치하는 것을 강력히 권장합니다. Steam Library Setup Tool을 사용해 기본 폴더 밖에 새 Steam 라이브러리를 만듭니다.
                             <br>
                             <br>
-                            If you already have Steam installed outside of any default windows folders then go directly to step 1 of the next section and install the games to your custom Steam library.
+                            Steam 자체가 이미 Windows 기본 폴더 밖에 설치되어 있다면 다음 항목의 1번 단계로 넘어가 기존 사용자 지정 Steam 라이브러리에 게임을 설치하세요.
                         </p>
                     </div>
 
                     <ol>
-                        <li>Completely exit out of Steam using Task Manager or System Tray.</li>
-                        <li>Download the <strong>steam_library_setup_tool-3.2.exe</strong> file from <a href="https://github.com/LostDragonist/steam-library-setup-tool/releases" target="_blank">here</a>.</li>
-                        <li>Once downloaded, run the file and add a new entry by clicking <strong>Add Row</strong>.</li>
-                        <li>Type the chosen path under <strong>Path</strong>, e.g. <span class="card-basic">C:\Games\Steam</span></li>
-                        <li>Click <strong>Accept</strong> then <strong>Yes</strong> if prompted to create a new folder.</li>
-                        <li>The tool will ask to exit, select <strong>OK</strong>.</li>
+                        <li>Task Manager 또는 System Tray에서 Steam을 완전히 종료합니다.</li>
+                        <li><a href="https://github.com/LostDragonist/steam-library-setup-tool/releases" target="_blank"><strong>steam_library_setup_tool-3.2.exe</strong></a>를 다운로드합니다.</li>
+                        <li>다운로드한 파일을 실행하고 <strong>Add Row</strong>를 눌러 새 항목을 추가합니다.</li>
+                        <li><strong>Path</strong>에 원하는 경로를 입력합니다. 예: <span class="card-basic">C:\Games\Steam</span></li>
+                        <li><strong>Accept</strong>를 누르고 새 폴더 생성 여부를 묻는 창이 나오면 <strong>Yes</strong>를 선택합니다.</li>
+                        <li>도구가 종료 여부를 물으면 <strong>OK</strong>를 선택합니다.</li>
                         <div class="image-container width-90">
                             <img class="content-img" src="./img/Others/Steam Library Tool Setup.webp" alt="Steam library setup tool">
                             <div class="resize-overlay expand"></div>
@@ -335,24 +315,22 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
                 </div>
 
                 <div class="card" id="Install">
-                    <h3>Installing the Game</h3>
+                    <h3>게임 설치</h3>
                     <p>
 
                     <ol>
-                        <li>Open Steam and go to your <strong>Library</strong>.</li>
-                        <li>Find <strong>Fallout 4</strong> in the list and select <strong>Install</strong>.</li>
-                        <li>Under <strong>Install to:</strong>, select the library folder created with the tool, which is the second <b>C:\</b> entry if you are installing on the main drive.</li>
+                        <li>Steam을 열고 <strong>Library</strong>로 이동합니다.</li>
+                        <li>목록에서 <strong>Fallout 4</strong>를 찾아 <strong>Install</strong>을 선택합니다.</li>
+                        <li><strong>Install to:</strong>에서 방금 만든 라이브러리 폴더를 선택합니다. 시스템 드라이브에 설치했다면 두 번째 <b>C:\</b> 항목입니다.</li>
                         <div class="image-container width-90">
                             <img class="content-img" src="./img/Others/Steam Location Pick.webp" alt="Example Steam install locations">
                             <div class="resize-overlay expand"></div>
                         </div>
-                        <li>Select <strong>Next</strong> then wait for the install to finish.</li>
+                        <li><strong>Next</strong>를 누르고 설치가 끝날 때까지 기다립니다.</li>
                     </ol>
 
                     <div class="card-yellow">
-                        <p>
-                            If you still do not see your new library, restart your PC.
-                        </p>
+                        <p>새 라이브러리가 보이지 않으면 PC를 재시작합니다.</p>
                     </div>
 
                     </p>
@@ -360,21 +338,21 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
             </span>
 
             <span id="PostInstallation" class="section">
-                <h2 onclick="location.href='#PostInstallation'">Post-Installation</h2>
+                <h2 onclick="location.href='#PostInstallation'">설치 후 설정</h2>
 
                 <div class="card" id="Terminology">
-                    <h3>Key Terminology</h3>
+                    <h3>주요 용어</h3>
                     <p>
-                        Now that the game is installed, there are two folders from it that will be referred to in the guide often:
+                        게임 설치를 마쳤습니다. 이후 가이드에서 자주 언급하는 폴더는 다음 두 곳입니다:
                     <ul>
-                        <li><strong>Root</strong> folder: Where the game is installed.</li>
+                        <li><strong>Root</strong>(게임 루트) 폴더: 게임이 설치된 폴더입니다.</li>
                         <div class="card-basic">
                             <p>Steam\steamapps\common\Fallout 4</p>
                         </div>
                     </ul>
 
                     <ul>
-                        <li><strong>Data</strong> folder: Where all of the game's assets are located.</li>
+                        <li><strong>Data</strong> 폴더: 게임의 에셋이 들어 있는 폴더입니다.</li>
                         <div class="card-basic">
                             <p>Steam\steamapps\common\Fallout 4\Data</p>
                         </div>
@@ -383,36 +361,34 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
                 </div>
 
                 <div class="card" id="GeneratingINIs" title="Generating INIs">
-                    <h3>Generating Fresh INI Files</h3>
+                    <h3>새 INI 파일 생성</h3>
                     <p>
                     <ol>
-                        <li>Run the game from Steam.</li>
-                        <li>Click OK to both pop-ups that say <b>Detecting Video Hardware</b>.</li>
+                        <li>Steam에서 게임을 실행합니다.</li>
+                        <li><b>Detecting Video Hardware</b>라는 팝업 두 개에서 모두 <b>OK</b>를 누릅니다.</li>
                         <ul>
-                            <li>If there aren't any pop-ups, navigate to <span class="card-basic">Documents\My Games\Fallout 4</span> and delete all INI files, then retry.</li>
+                            <li>팝업이 나오지 않으면 <span class="card-basic">Documents\My Games\Fallout 4</span>의 INI 파일을 모두 삭제한 뒤 다시 시도합니다.</li>
                         </ul>
-                        <li>Click <b>OK</b> then <b>Exit</b>.</li>
+                        <li><b>OK</b>를 누른 뒤 <b>Exit</b>로 종료합니다.</li>
                     </ol>
                     </p>
                 </div>
 
                 <div class="card" id="FixingDPI" title="Fixing High DPI Scaling">
-                    <h3>Fixing High DPI Scaling</h3>
+                    <h3>High DPI 스케일링 설정</h3>
                     <p>
                     <ol>
-                        <li>Right-click on <strong>Fallout4.exe</strong> in the Root folder.</li>
-                        <li>Open properties and navigate to the <strong>Compatibility</strong> tab.</li>
-                        <li>Click on <strong>Change high DPI settings</strong>.</li>
-                        <li>Set <b>High DPI scaling override</b> to <strong>Application</strong>.</li>
+                        <li>Root 폴더의 <strong>Fallout4.exe</strong>를 우클릭합니다.</li>
+                        <li>Properties를 열고 <strong>Compatibility</strong> 탭으로 이동합니다.</li>
+                        <li><strong>Change high DPI settings</strong>를 클릭합니다.</li>
+                        <li><b>High DPI scaling override</b>를 <strong>Application</strong>으로 설정합니다.</li>
                     </ol>
                     </p>
                 </div>
 
                 <div class="card-wj" id="WabbajackReturn" title="Return To The WJ Page">
-                    <h3>Wabbajack Users!</h3>
-                    <p>
-                        You are done with the Introduction and Setup of the guide, go back to the <a href="./wabbajack.html#Installation">Wabbajack page</a> to continue installing the list with it!
-                    </p>
+                    <h3>Wabbajack 사용자</h3>
+                    <p>가이드의 소개와 초기 설정을 마쳤습니다. <a href="./wabbajack.html#Installation">Wabbajack 페이지</a>로 돌아가 모드리스트 설치를 계속하세요.</p>
                 </div>
             </span>
 
@@ -435,7 +411,7 @@ winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-a
         </div>
     </div>
 
-    <footer>ModdingLinked 2026</footer>
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
 
     <div id="image-overlay" class="overlay" hidden>
         <div class="image-container">
