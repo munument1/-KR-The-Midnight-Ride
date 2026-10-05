@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/Coco/Head Logo.webp">
 
-    <title>Light Plugins | The Midnight Ride</title>
+    <title>Light Plugins | The Midnight Ride 한국어</title>
 
     <meta name="keywords" content="
     Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
@@ -25,15 +25,15 @@
     Skyrim Special Edition, Skyrim SE, SSE,
     Light Plugins, ESL, ESL Flag,">
 
-    <meta name="description" content="All you need to know about ESL plugins and how to flag your load order ESL in batch.">
+    <meta name="description" content="ESL 플러그인의 개념과 일괄 ESL 플래그 적용 방법을 설명합니다.">
     <meta http-equiv='content-language' content='ko-KR'>
     <meta name="twitter:card" value="summary_large_image">
     <meta property="og:site_name" content="The Midnight Ride 비공식 한국어 번역">
-    <meta property="og:title" content="The Midnight Ride">
+    <meta property="og:title" content="The Midnight Ride 한국어">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://themidnightride.moddinglinked.com">
     <meta property="og:image" content="https://themidnightride.moddinglinked.com/img/Others/Card.webp">
-    <meta property="og:description" content="All you need to know about ESL plugins and how to flag your load order ESL in batch.">
+    <meta property="og:description" content="ESL 플러그인의 개념과 일괄 ESL 플래그 적용 방법을 설명합니다.">
 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#292c35">
     <meta name="darkreader-lock">
@@ -211,15 +211,15 @@
         <div class="content">
 
             <span id="Overview" class="section">
-                <h2 onclick="location.href='#ESL'">Light Plugins</h2>
+                <h2 onclick="location.href='#ESL'">Light Plugins (라이트 플러그인)</h2>
 
                 <div class="card" id="Introduction">
-                    <h3>Introduction to ESLs</h3>
+                    <h3>ESL 소개</h3>
                     <p>
-                        ESLs (<b>Elder Scrolls Light</b> Plugin) are a type of plugin used in Fallout 4 and Skyrim Special Edition, they allow plugins within a certain size to have an index limited to <strong>4096 instead of 256</strong>.
+                        ESL(<b>Elder Scrolls Light</b> Plugin)은 Fallout 4와 Skyrim Special Edition에서 사용하는 플러그인 형식입니다. 일정 크기 이하의 플러그인을 일반 플러그인의 256개 슬롯 대신 <strong>4096 범위의 라이트 플러그인 인덱스</strong>로 처리할 수 있게 합니다.
                         <br>
                         <br>
-                        <strong>Mod Organizer 2 will indicate these plugins</strong> with a <b>yellow circle</b> in the plugins tab and with an <b>italic font</b>.
+                        <strong>Mod Organizer 2는 이런 플러그인을</strong> Plugins 탭에서 <b>노란색 원</b>과 <b>기울임꼴 글씨</b>로 표시합니다.
                         <br>
                     <div class="image-container width-60">
                         <img class="content-img" src="./img/Others/ESL Flag.webp" alt="ESL flag in MO2's plugins tab">
@@ -229,45 +229,45 @@
                 </div>
 
                 <div class="card" id="Limitations">
-                    <h3>Limitations</h3>
+                    <h3>제한 사항</h3>
                     <p>
                     <ul>
-                        <li>To be flagged ESL, a plugin <strong>can't have more than 4095 new records</strong> (the range is from 001->FFF).</li>
+                        <li>ESL 플래그를 적용하려면 플러그인에 <strong>새 레코드가 4095개를 초과하면 안 됩니다</strong>. FormID 범위는 001→FFF입니다.</li>
                         <ul>
-                            <li>If a plugin's header is version 0.95, the max amount of new records is 2048 (800->FFF).</li>
+                            <li>플러그인 헤더 버전이 0.95라면 새 레코드 최대 수는 2048개(800→FFF)입니다.</li>
                         </ul>
                         <li>
-                            ESL on Fallout 4 has <strong>2 bugs</strong>:
+                            Fallout 4의 ESL에는 <strong>두 가지 알려진 제약</strong>이 있습니다:
                             <ul>
-                                <li>Cells originating in a light plugin <strong>cannot use the PreVis/Precombine system</strong>.</li>
-                                <li>Voiced dialogue overrides in a light plugin might result in <strong>silent dialogue audio</strong>.</li>
+                                <li>Light plugin에서 새로 만든 Cell은 <strong>PreVis/Precombine 시스템을 사용할 수 없습니다</strong>.</li>
+                                <li>Light plugin에서 음성 대사를 override하면 <strong>대사 음성이 나오지 않을 수 있습니다</strong>.</li>
                             </ul>
                         </li>
-                        <li>Working with ESL plugins in Creation Kit might result in more work due to the <strong>CK totally ignoring ESL</strong> space when creating new records. This means that after making new records in CK you'll have to compact forms in xEdit.</li>
+                        <li>Creation Kit은 새 레코드를 만들 때 ESL 공간을 고려하지 않으므로 ESL 플러그인 작업이 번거로울 수 있습니다. CK에서 새 레코드를 만든 뒤에는 xEdit에서 Form을 compact해야 할 수 있습니다.</li>
                     </ul>
                     </p>
                 </div>
 
                 <div class="card" id="BatchFlagging">
-                    <h3>Batch Flagging</h3>
+                    <h3>일괄 ESL 플래그 적용</h3>
                     <p>
-                        In order to have more space for non-ESL plugins in your load order, you'll have to make sure everything that can be flagged ESL, is. <strong>xEdit can do this natively</strong> thanks to it's PseudoESL argument and the SetESL script, which flags everything that can be flagged safely.
+                        로드 오더에서 일반 플러그인 슬롯을 더 확보하려면 안전하게 ESL 플래그를 적용할 수 있는 플러그인에는 가능한 한 적용하는 것이 좋습니다. <strong>xEdit는 PseudoESL 인자와 SetESL 스크립트</strong>를 이용해 안전하게 플래그할 수 있는 항목을 찾아 일괄 처리할 수 있습니다.
                     <ol>
-                        <li>If you haven't already, read the <a href="https://moddinglinked.com/xedit.html">xEdit guide</a> to avoid confusion with the next steps.</li>
-                        <li>Add <span class="card-basic">-PseudoESL</span> to the arguments field of xEdit in MO2.</li>
-                        <li>Run xEdit and load <strong>all of your mods</strong>.</li>
-                        <li>Once loaded, select all plugins on the tree-view with CTRL+A, then right-click and <b>Apply Script...</b></li>
+                        <li>아직 읽지 않았다면 다음 단계를 이해하기 위해 <a href="https://moddinglinked.com/xedit.html" target="_blank">xEdit 가이드</a>를 먼저 확인하세요.</li>
+                        <li>MO2의 xEdit 실행 설정에서 Arguments 필드에 <span class="card-basic">-PseudoESL</span>을 추가합니다.</li>
+                        <li>xEdit를 실행하고 <strong>모든 모드</strong>를 불러옵니다.</li>
+                        <li>로드가 끝나면 tree-view에서 CTRL+A로 모든 플러그인을 선택하고 우클릭한 뒤 <b>Apply Script...</b>를 선택합니다.</li>
                         <div class="image-container width-60">
                             <img class="content-img" src="./img/Others/Apply Script.webp" alt="Apply a script to the entire load order">
                             <div class="resize-overlay expand"></div>
                         </div>
-                        <li>Type <b>SetESL</b> in the filter and the script will automatically be selected.</li>
+                        <li>필터에 <b>SetESL</b>을 입력하면 해당 스크립트가 자동으로 선택됩니다.</li>
                         <div class="image-container width-60">
                             <img class="content-img" src="./img/Others/ESL Script.webp" alt="Select the SetESL script">
                             <div class="resize-overlay expand"></div>
                         </div>
-                        <li>Click <b>OK</b> and wait for it to process everything.</li>
-                        <li><strong>Close xEdit</strong>, if it asks you to <strong>save</strong> then that means the plugins listed received the ESL flag.</li>
+                        <li><b>OK</b>를 누르고 처리가 끝날 때까지 기다립니다.</li>
+                        <li><strong>xEdit를 종료</strong>합니다. 저장 여부를 묻는다면 목록에 표시된 플러그인에 ESL 플래그가 적용된 것입니다.</li>
                     </ol>
                     </p>
                 </div>
@@ -287,7 +287,7 @@
         </div>
     </div>
 
-    <footer>ModdingLinked 2026</footer>
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
 
     <div id="image-overlay" class="overlay" hidden>
         <div class="image-container">
