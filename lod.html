@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/Coco/Head Logo.webp">
 
-    <title>LOD Guide | The Midnight Ride</title>
+    <title>LOD 가이드 | The Midnight Ride 한국어</title>
 
     <meta name="keywords" content="
     Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
@@ -25,15 +25,15 @@
     Skyrim Special Edition, Skyrim SE, SSE,
     Level Of Detail, LOD, xLODGen, DynDOLOD, TexGen, Terrain LOD, Object LOD, Tree LOD">
 
-    <meta name="description" content="General information on LOD and how to regenerate it with FO4LODgen and other tools.">
+    <meta name="description" content="LOD의 기본 개념과 FO4LODGen, TexGen, xLODGen을 이용한 생성 방법을 안내합니다.">
     <meta http-equiv='content-language' content='ko-KR'>
     <meta name="twitter:card" value="summary_large_image">
     <meta property="og:site_name" content="The Midnight Ride 비공식 한국어 번역">
-    <meta property="og:title" content="The Midnight Ride">
+    <meta property="og:title" content="The Midnight Ride 한국어">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://themidnightride.moddinglinked.com">
     <meta property="og:image" content="https://themidnightride.moddinglinked.com/img/Others/Card.webp">
-    <meta property="og:description" content="General information on LOD and how to regenerate it with FO4LODgen and other tools.">
+    <meta property="og:description" content="LOD의 기본 개념과 FO4LODGen, TexGen, xLODGen을 이용한 생성 방법을 안내합니다.">
 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#292c35">
     <meta name="darkreader-lock">
@@ -211,30 +211,30 @@
         <div class="content">
 
             <span id="Overview" class="section">
-                <h2 onclick="location.href='#Overview'">Overview</h2>
+                <h2 onclick="location.href='#Overview'">개요</h2>
 
                 <div class="card" id="UnderstandingLOD" title="Understanding LOD">
-                    <h3>Understanding LOD</h3>
+                    <h3>LOD 이해하기</h3>
                     <p>
-                        LOD stands for <strong>Level Of Detail</strong> - a system used to represent distant objects with simplified meshes and textures to improve performance. In Bethesda games, LOD primarily refers to <strong>Cell LOD</strong>, which represents whole "chunks" of land in the distance.
+                        LOD는 <strong>Level Of Detail</strong>의 약자로, 멀리 있는 오브젝트를 단순화된 mesh와 texture로 표시해 성능을 확보하는 시스템입니다. Bethesda 게임에서 LOD는 주로 멀리 있는 지형의 전체 "덩어리"를 표현하는 <strong>Cell LOD</strong>를 뜻합니다.
                         <br>
                         <br>
-                        Cell LOD is not based on distance - it's a binary state of whether cell is either loaded or not. The LOD Block distance settings control the max draw distance of LOD itself, not the point where it begins.
+                        Cell LOD는 세부 거리에 따라 연속적으로 바뀌는 방식이 아니라 해당 Cell이 로드됐는지 여부에 따라 전환됩니다. LOD Block distance 설정은 LOD가 시작되는 지점이 아니라 LOD 자체의 최대 표시 거리를 조절합니다.
                         <br>
-                        This means that you will see LOD pop-in at the same distance regardless of the settings.
+                        따라서 이 설정을 바꾸더라도 LOD가 실제 오브젝트로 전환되는 pop-in 지점은 같은 거리에서 보입니다.
 
-                    <p>Cell LOD is divided into three main categories:</p>
+                    <p>Cell LOD는 다음 주요 범주로 나뉩니다:</p>
                     <ol>
                         <li>
-                            <strong>Object LOD</strong> - Simplified versions of buildings, rocks, and other static objects. Has only one quality level and generates relatively quickly.
+                            <strong>Object LOD</strong> - 건물, 바위 등 정적 오브젝트의 단순화된 버전입니다. 품질 단계가 하나뿐이라 비교적 빠르게 생성됩니다.
                         </li>
                         <li>
-                            <strong>Terrain LOD</strong> - Represents the terrain of cell groups, with multiple quality levels that change based on distance (LOD4 4x4, LOD8 8x8, etc.). Takes the longest to generate due to its complexity.
+                            <strong>Terrain LOD</strong> - Cell 묶음의 지형을 표현하며 거리에 따라 여러 품질 단계(LOD4 4x4, LOD8 8x8 등)를 사용합니다. 구조가 복잡해 생성 시간이 가장 오래 걸립니다.
                         </li>
 
                         <div class="card-green">
                             <p>
-                                Tree LOD is unused in Fallout 4, all trees are included in the Object LOD.
+                                Fallout 4에서는 Tree LOD를 따로 사용하지 않으며 모든 나무가 Object LOD에 포함됩니다.
                             </p>
                         </div>
 
@@ -243,36 +243,36 @@
                 </div>
 
                 <div class="card" id="WhyGenerate" title="Why Generate Custom LOD?">
-                    <h3>Why Generate Custom LOD?</h3>
+                    <h3>왜 커스텀 LOD를 생성하나요?</h3>
                     <p>
-                        The vanilla game's LOD is pre-generated and static, which means it can't reflect changes made by mods to terrain or objects. Custom LOD generation creates meshes that match your modded game, providing:
+                        바닐라 게임의 LOD는 미리 생성된 고정 데이터라 모드가 지형이나 오브젝트를 변경해도 그 내용을 반영하지 못합니다. 커스텀 LOD를 생성하면 현재 모드 구성에 맞는 mesh를 만들 수 있으며 다음과 같은 이점이 있습니다:
 
                     <ul>
-                        <li>Increased visual consistency between nearby and distant objects.</li>
-                        <li>More objects visible in the distance.</li>
-                        <li>LOD textures that match your installed texture mods.</li>
-                        <li>Improved quality over the low-detail vanilla LOD.</li>
-                        <li>Filled gaps where objects previously appeared out of nowhere during cell transitions.</li>
+                        <li>가까운 오브젝트와 먼 오브젝트 사이의 시각적 일관성이 좋아집니다.</li>
+                        <li>멀리서 보이는 오브젝트 수가 늘어납니다.</li>
+                        <li>설치한 texture 모드와 어울리는 LOD texture를 사용할 수 있습니다.</li>
+                        <li>저해상도 바닐라 LOD보다 품질이 좋아집니다.</li>
+                        <li>Cell 전환 시 오브젝트가 갑자기 나타나던 빈 공간을 줄일 수 있습니다.</li>
                     </ul>
 
                     <div class="card-yellow">
                         <p>
-                            The Midnight Ride (even with TMR Extended) does not strictly require terrain LOD regeneration, but this guide covers both object and terrain LOD to accommodate custom modlists.
+                            The Midnight Ride는 TMR Extended까지 포함해도 Terrain LOD 재생성이 필수는 아닙니다. 다만 사용자 정의 모드 목록까지 대응할 수 있도록 이 가이드에서는 Object LOD와 Terrain LOD 생성 방법을 모두 설명합니다.
                         </p>
                     </div>
 
                     <div class="card-green">
                         <p>
-                            While custom LOD significantly improves visual quality, it does come with a minor performance cost. The trade-off is generally worth it for most modern systems.
+                            커스텀 LOD는 시각 품질을 크게 개선하지만 약간의 성능 비용이 있습니다. 대부분의 현대적인 시스템에서는 이 정도의 비용을 감수할 만한 편입니다.
                         </p>
                     </div>
                     </p>
                 </div>
 
                 <div class="card" id="LODComparison" title="LOD Comparison">
-                    <h3>LOD Comparison</h3>
+                    <h3>LOD 비교</h3>
                     <p>
-                        Drag the slider handle to compare how the game looks with generated LOD. Use the dropdown to select different comparison sets.<!--  You can also find performance and VRAM usage comparisons <a href="https://moddinglinked.com/benchmarks.html" target="_blank">here</a>. -->
+                        슬라이더를 움직여 생성 전후 LOD의 차이를 비교할 수 있습니다. 드롭다운에서 다른 비교 장면을 선택할 수 있습니다.<!--  You can also find performance and VRAM usage comparisons <a href="https://moddinglinked.com/benchmarks.html" target="_blank">here</a>. -->
                     </p>
 
                     <div class="image-slider" data-image-path="./img/LOD/Comparisons" data-sets="Sanctuary|Charles River|Four Leaf Fishpacking Plant|Nuka World" data-images="Before|After">
@@ -292,28 +292,28 @@
             </span>
 
             <span id="Preparation" class="section">
-                <h2 onclick="location.href='#Preparation'">Preparation</h2>
+                <h2 onclick="location.href='#Preparation'">준비</h2>
 
                 <div class="card">
-                    <h3>Creating a Separator in MO2</h3>
+                    <h3>MO2에 구분선 만들기</h3>
                     <p>
                     <ol>
-                        <li>Right-click the empty space in the left pane of MO2 and select <strong>Create separator</strong>.</li>
-                        <li>Name the separator <strong>LOD</strong>.</li>
+                        <li>MO2 왼쪽 패널의 빈 공간을 우클릭하고 <strong>Create separator</strong>를 선택합니다.</li>
+                        <li>구분선 이름을 <strong>LOD</strong>로 지정합니다.</li>
                     </ol>
                     </p>
                 </div>
 
                 <div class="card" id="InstallingResources" title="Installing LOD Resources">
-                    <h3>Installing LOD Resources</h3>
+                    <h3>LOD 리소스 설치</h3>
                     <p>
-                        Install in the following order:
+                        다음 순서대로 설치합니다:
                     <ol>
                         <li>
                             <b class="link-download"><a href="https://www.nexusmods.com/fallout4/mods/80276" target="_blank">FO4LODGen Resources</a></b>
                             <ul>
                                 <li><b>Main Files</b> - FO4LODGen Resources</li>
-                                <li>You will be prompted with a FOMOD installer:
+                                <li>FOMOD 설치 화면이 표시됩니다:
                                     <ol>
                                         <li>FO4LODGen.esp</li>
                                         <li>Install</li>
@@ -326,7 +326,7 @@
                             <b class="link-download"><a href="https://www.nexusmods.com/fallout4/mods/61884" target="_blank">Far Object LOD Improvement Project</a></b>
                             <ul>
                                 <li><b>Main Files</b> - Far Object LOD Improvement Project</li>
-                                <li>You will be prompted with a FOMOD installer:
+                                <li>FOMOD 설치 화면이 표시됩니다:
                                     <ol>
                                         <li>Next</li>
                                         <li>Next</li>
@@ -340,7 +340,7 @@
                             <b class="link-download"><a href="https://www.nexusmods.com/fallout4/mods/63191" target="_blank">Far Harbor 3D Tree LODs</a></b>
                             <ul>
                                 <li><b>Main Files</b> - Far Harbor 3D Tree LODs</li>
-                                <li>You will be prompted with a FOMOD installer:
+                                <li>FOMOD 설치 화면이 표시됩니다:
                                     <ol>
                                         <li>Next</li>
                                         <li>Install</li>
@@ -353,12 +353,12 @@
                             <b class="link-download"><a href="https://www.nexusmods.com/fallout4/mods/63198" target="_blank">Optimized Vanilla Tree LODs</a></b>
                             <ul>
                                 <li><b>Main Files</b> - Optimized Vanilla Tree LODs</li>
-                                <li>You will be prompted with a FOMOD installer:
+                                <li>FOMOD 설치 화면이 표시됩니다:
                                     <ol>
                                         <li>Next</li>
-                                        <li>Enable all options with an asterisk appended, Next</li>
-                                        <li>Enable all options with an asterisk appended, Next</li>
-                                        <li>Enable all options with an asterisk appended, Install</li>
+                                        <li>별표(*)가 붙은 옵션을 모두 활성화한 뒤 Next</li>
+                                        <li>별표(*)가 붙은 옵션을 모두 활성화한 뒤 Next</li>
+                                        <li>별표(*)가 붙은 옵션을 모두 활성화한 뒤 Install</li>
                                     </ol>
                                 </li>
                             </ul>
@@ -376,18 +376,18 @@
 
                 <div class="card-red center">
                     <p>
-                        <b>IMPORTANT</b>:
+                        <b>중요</b>:
                         <br>
-                        Enable all resources in MO2 before continuing.
+                        계속 진행하기 전에 MO2에서 모든 LOD 리소스를 활성화하세요.
                     </p>
                 </div>
 
                 <div class="card" id="PreGen" title="Pre-Generated LOD">
                     <p>
                     <h3 class="link-download"><a href="https://www.nexusmods.com/fallout4/mods/67185" target="_blank">Pre-Generated LOD</a></h3>
-                    If you use a <strong>TMRE modlist</strong> with no changes to textures or the game world, you can skip manual LOD generation by using this file. It includes both Object and Terrain LOD and was generated with <b>Force LOD8</b> enabled.
+                    Texture나 게임 월드에 별도 변경을 하지 않은 <strong>TMRE 모드리스트</strong>를 사용한다면 이 파일로 수동 LOD 생성을 건너뛸 수 있습니다. Object LOD와 Terrain LOD가 모두 포함되어 있으며 <b>Force LOD8</b>을 활성화해 생성된 파일입니다.
                     <br><br>
-                    Simply install it as a normal mod in MO2 and put it under the resources listed in the previous section (which you still need). Lastly, make sure the following plugins are enabled in your load order:
+                    일반 모드처럼 MO2에 설치한 뒤 앞에서 설치한 LOD 리소스 아래에 배치합니다. 앞의 리소스는 여전히 필요합니다. 마지막으로 다음 플러그인이 로드 오더에서 활성화되어 있는지 확인합니다:
                     <ul>
                         <li>FOLIP - Master.esm (as last ESM)</li>
                         <li>FOLIP - Patch.esp (at the very bottom)</li>
@@ -398,23 +398,23 @@
             </span>
 
             <span id="GeneratingLOD" class="section">
-                <h2 onclick="location.href='#GeneratingLOD'">Generating LOD</h2>
+                <h2 onclick="location.href='#GeneratingLOD'">LOD 생성</h2>
 
                 <div class="card" id="FOLIPPatch" title="FOLIP Patch">
                     <h3>FOLIP Patch</h3>
                     <p>
                     <ol>
-                        <li><strong>Setup xEdit</strong> according to the ModdingLinked Setup instructions <a href="https://moddinglinked.com/xedit.html#setup" target="_blank">here</a>.</li>
-                        <li>Launch xEdit with any plugin loaded, then go in the settings and <strong>disable Simple Records</strong>.</li>
-                        <li>Download <a href="https://www.nexusmods.com/fallout4/mods/61884" target="_blank">FOLIP xEdit Scripts</a> and drag the archive's contents into xEdit's <b>Edit Scripts</b> folder.</li>
-                        <li>Restart xEdit and load all of the plugins.</li>
-                        <li>Once everything has loaded, right-click any of them and <b>Apply Script...</b>, then select <strong>FOLIP</strong> and click <b>OK</b>.</li>
-                        <li>Optionally, enable <b>Force LOD8</b> for better visuals at a small performance cost.</li>
-                        <li>Click <b>Start</b>.</li>
-                        <li>When complete, you will see a message saying "<b>Patch generated successfully!</b>", click <b>OK</b>.</li>
-                        <li>Exit xEdit and save the plugin when prompted.</li>
-                        <li>An Explorer window should have opened showing the <b>.zip output file</b>. Take it and drag it to the bottom of your LOD separator in your modlist to install it.</li>
-                        <li>Once the output is installed, make sure the following plugins are enabled in your load order:
+                        <li>ModdingLinked의 <a href="https://moddinglinked.com/xedit.html#setup" target="_blank">설정 안내</a>에 따라 <strong>xEdit를 설정</strong>합니다.</li>
+                        <li>아무 플러그인이나 불러온 상태로 xEdit를 실행한 뒤 Settings에서 <strong>Simple Records를 비활성화</strong>합니다.</li>
+                        <li><a href="https://www.nexusmods.com/fallout4/mods/61884" target="_blank">FOLIP xEdit Scripts</a>를 다운로드하고 압축 파일의 내용을 xEdit의 <b>Edit Scripts</b> 폴더에 넣습니다.</li>
+                        <li>xEdit를 다시 실행하고 모든 플러그인을 불러옵니다.</li>
+                        <li>로드가 끝나면 아무 플러그인이나 우클릭하고 <b>Apply Script...</b>를 선택한 뒤 <strong>FOLIP</strong>을 선택하고 <b>OK</b>를 누릅니다.</li>
+                        <li>원한다면 약간의 성능 비용을 감수하고 더 나은 비주얼을 위해 <b>Force LOD8</b>을 활성화할 수 있습니다.</li>
+                        <li><b>Start</b>를 클릭합니다.</li>
+                        <li>완료되면 "<b>Patch generated successfully!</b>" 메시지가 표시됩니다. <b>OK</b>를 누릅니다.</li>
+                        <li>xEdit를 종료하고 저장 여부를 묻는 창이 나오면 플러그인을 저장합니다.</li>
+                        <li><b>.zip 출력 파일</b>이 있는 Explorer 창이 열립니다. 해당 파일을 MO2 모드 목록의 LOD 구분선 맨 아래로 끌어다 놓아 설치합니다.</li>
+                        <li>출력 파일을 설치한 뒤 다음 플러그인이 로드 오더에서 활성화되어 있는지 확인합니다:
                             <ul>
                                 <li>FOLIP - Master.esm (as last ESM)</li>
                                 <li>FOLIP - Patch.esp (at the very bottom)</li>
@@ -428,18 +428,18 @@
                     <h3>TexGen</h3>
                     <p>
                     <ol>
-                        <li>Download the latest <a href="https://www.nexusmods.com/skyrimspecialedition/mods/68518?" target="_blank">DynDOLOD 3 Alpha</a>.</li>
-                        <li>Once the download has finished, extract the contents of the archive to any location of your choice (do not use a UAC protected folder or the game folder).</li>
-                        <li>In MO2, select the <img src="./img/MO2/Executables.webp" alt="MO2 executables"> button at the top of MO2 to open the executables menu.</li>
-                        <li>Click the <strong style="color:rgb(20, 162, 228)">+</strong> at the top of the window and the select <strong>Add from file...</strong></li>
-                        <li>From the pop-up, navigate to where TexGen is installed and select <strong>TexGenx64.exe</strong>.</li>
-                        <li>In the <b>Arguments</b> box in the right pane, enter <span class="card-basic">-FO4</span></li>
-                        <li>Select TexGen from the executables drop-down in the top right of MO2 and click <b>Run</b>.</li>
-                        <li>Once the program has loaded, make sure that <strong>Base Size</strong> is set to <strong>256 (1440p)</strong>. Higher resolutions are unsupported due to game engine mipmap bugs associated with exceeding the Object LOD atlas.</li>
-                        <li>Click <strong>Start</strong>.</li>
-                        <li>When complete, you will see a message saying "<b>TexGen completed successfully</b>", click <strong>Zip and Exit</strong>.</li>
-                        <li>Install the TexGen output by clicking the <img src="./img/MO2/Install Archive.webp" alt="MO2 archive button"> button at the top of MO2.</li>
-                        <li>From the new window, navigate to the DynDOLOD folder you installed in step 2, then double-click <b>TexGen_Output.zip</b> and install it.</li>
+                        <li>최신 <a href="https://www.nexusmods.com/skyrimspecialedition/mods/68518?" target="_blank">DynDOLOD 3 Alpha</a>를 다운로드합니다.</li>
+                        <li>다운로드가 끝나면 압축을 원하는 위치에 풉니다. UAC 보호 폴더나 게임 폴더는 사용하지 마세요.</li>
+                        <li>MO2 상단의 <img src="./img/MO2/Executables.webp" alt="MO2 executables"> 버튼을 클릭해 Executables 메뉴를 엽니다.</li>
+                        <li>창 위쪽의 <strong style="color:rgb(20, 162, 228)">+</strong>를 클릭한 뒤 <strong>Add from file...</strong>을 선택합니다.</li>
+                        <li>팝업에서 TexGen 설치 위치로 이동해 <strong>TexGenx64.exe</strong>를 선택합니다.</li>
+                        <li>오른쪽 패널의 <b>Arguments</b>에 <span class="card-basic">-FO4</span>를 입력합니다.</li>
+                        <li>MO2 오른쪽 위 Executables 드롭다운에서 TexGen을 선택하고 <b>Run</b>을 클릭합니다.</li>
+                        <li>프로그램이 로드되면 <strong>Base Size</strong>를 <strong>256 (1440p)</strong>으로 설정합니다. Object LOD atlas 한계를 넘을 때 발생하는 게임 엔진의 mipmap 버그 때문에 더 높은 해상도는 지원하지 않습니다.</li>
+                        <li><strong>Start</strong>를 클릭합니다.</li>
+                        <li>완료되면 "<b>TexGen completed successfully</b>" 메시지가 표시됩니다. <strong>Zip and Exit</strong>를 클릭합니다.</li>
+                        <li>MO2 상단의 <img src="./img/MO2/Install Archive.webp" alt="MO2 archive button"> 버튼을 눌러 TexGen 출력 파일을 설치합니다.</li>
+                        <li>새 창에서 2단계에서 설치한 DynDOLOD 폴더로 이동한 뒤 <b>TexGen_Output.zip</b>을 더블클릭해 설치합니다.</li>
                     </ol>
                     </p>
                 </div>
@@ -447,28 +447,28 @@
                 <div class="card" id="xLODGen" title="xLODGen">
                     <h3>xLODGen</h3>
                     <p>
-                        xLODGen is an xEdit-based tool that allows you to generate LOD meshes for your game. Similarly to xEdit, it has a single executable that can be be turned into a game specific version by adding arguments.
+                        xLODGen은 게임용 LOD mesh를 생성하는 xEdit 기반 도구입니다. xEdit와 마찬가지로 하나의 실행 파일에 인자를 추가해 대상 게임에 맞게 실행합니다.
                     <ol>
-                        <li>Download the latest <strong>xLODGen</strong> from <a href="https://stepmodifications.org/forum/topic/13451-xlodgen-terrain-lod-beta-94-for-fnv-fo3-fo4-fo4vr-tes5-sse-tes5vr-enderal-enderalse/" target="_blank">here</a>.</li>
-                        <li>Once the download has finished, extract the contents of the archive anywhere outside of the default Windows folders.</li>
-                        <li>In MO2, select the <img src="./img/MO2/Executables.webp" alt="MO2 executables" class="mo2-icon"> button at the top of MO2 to open the executables menu.</li>
-                        <li>Click the <strong style="color:rgb(20, 162, 228)">+</strong> at the top of the window and the select <strong>Add from file...</strong></li>
-                        <li>From the pop-up, navigate to where xLODGen is installed and select <strong>xLODGenx64.exe</strong>.</li>
-                        <li>In the <b>Arguments</b> box in the right pane, enter <span class="card-basic">-FO4 -O:"C:\Output"</span></li>
+                        <li>최신 <strong>xLODGen</strong>을 <a href="https://stepmodifications.org/forum/topic/13451-xlodgen-terrain-lod-beta-94-for-fnv-fo3-fo4-fo4vr-tes5-sse-tes5vr-enderal-enderalse/" target="_blank">여기</a>에서 다운로드합니다.</li>
+                        <li>다운로드가 끝나면 Windows 기본 폴더 밖의 원하는 위치에 압축을 풉니다.</li>
+                        <li>MO2 상단의 <img src="./img/MO2/Executables.webp" alt="MO2 executables" class="mo2-icon"> 버튼을 클릭해 Executables 메뉴를 엽니다.</li>
+                        <li>창 위쪽의 <strong style="color:rgb(20, 162, 228)">+</strong>를 클릭한 뒤 <strong>Add from file...</strong>을 선택합니다.</li>
+                        <li>팝업에서 xLODGen 설치 위치로 이동해 <strong>xLODGenx64.exe</strong>를 선택합니다.</li>
+                        <li>오른쪽 패널의 <b>Arguments</b>에 <span class="card-basic">-FO4 -O:"C:\Output"</span>을 입력합니다.</li>
 
                         <div class="card-green">
                             <p>
-                                This argument will send the LOD output to a folder called <b class="card-basic">Output</b> on your <b>C</b> drive (the drive Windows is installed on).
+                                이 인자는 LOD 출력 파일을 Windows가 설치된 <b>C</b> 드라이브의 <b class="card-basic">Output</b> 폴더로 보냅니다.
                                 <br>
-                                You can change this path if you would prefer the files to be generated elsewhere (do not use a UAC protected folder or the game folder).
+                                원한다면 출력 경로를 다른 위치로 바꿀 수 있습니다. UAC 보호 폴더나 게임 폴더는 사용하지 마세요.
                                 <br>
                                 <br>
-                                Make sure that the output folder is empty before generating LOD.
+                                LOD를 생성하기 전에 출력 폴더가 비어 있는지 확인합니다.
                             </p>
                         </div>
 
-                        <li>Select xLODGen from the executables drop-down in the top right of MO2 and click <b>Run</b>.</li>
-                        <li>Copy all settings from the image below:</li>
+                        <li>MO2 오른쪽 위 Executables 드롭다운에서 xLODGen을 선택하고 <b>Run</b>을 클릭합니다.</li>
+                        <li>아래 이미지의 설정을 그대로 적용합니다:</li>
 
                         <div class="image-container width-60">
                             <img class="content-img" src="./img/LOD/Main Settings.webp" alt="Main LOD Settings - Objects and Trees">
@@ -477,12 +477,12 @@
 
                         <div class="card-green">
                             <p>
-                                Generating LOD for the DLC03VRWorldspace is a waste of time and disk space as you won't be able to see any LOD in that location.
+                                DLC03VRWorldspace에서는 LOD가 보이지 않으므로 해당 Worldspace의 LOD를 생성하는 것은 시간과 저장 공간만 낭비합니다.
                             </p>
                         </div>
 
                         <div class="expander-top clickable" onclick="expandCard(this)">
-                            <h3>Terrain LOD generation instructions (Optional but Recommended)</h3>
+                            <h3>Terrain LOD 생성 방법 (선택 사항이지만 권장)</h3>
                             <p>
                                 <img class="chevron" style="transform: rotateX(0deg);" src="img/UI/Chevron Down.svg" alt="UI element - Chevron">
                             </p>
@@ -491,26 +491,26 @@
 
                             <div class="card-red">
                                 <p>
-                                    Generating Terrain LOD is <strong>very</strong> CPU intensive and can take a long time depending on the settings and your CPU's multithreaded performance.
+                                    Terrain LOD 생성은 CPU 부하가 <strong>매우 높으며</strong>, 설정과 CPU의 멀티스레드 성능에 따라 오래 걸릴 수 있습니다.
                                     <br><br>
-                                    It's needed <u>only</u> if you have mods that edit the landscape or landscape textures. But the visual improvement is big regardless.
+                                    Landscape 또는 landscape texture를 수정하는 모드를 사용한다면 <u>필요</u>합니다. 그런 모드가 없더라도 시각적 개선 폭은 큰 편입니다.
                                 </p>
                             </div>
 
                             <ol>
-                                <li>In the right pane, check <strong>Terrain LOD</strong>.</li>
+                                <li>오른쪽 패널에서 <strong>Terrain LOD</strong>를 체크합니다.</li>
                                 <li>
-                                    Landscape LOD has 4 quality levels for different distances (with LOD4 being the closest to you, and LOD32 being the farthest).
+                                    Landscape LOD는 거리에 따라 4개 단계로 나뉩니다. LOD4가 가장 가까운 거리, LOD32가 가장 먼 거리입니다.
 
                                     <div class="card-yellow">
                                         <p>
-                                            All LOD levels are generated at once! You don't have to do anything besides configuring every level!
+                                            모든 LOD 단계는 한 번에 생성됩니다. 각 단계의 설정만 지정하면 됩니다.
                                             <br>
-                                            This is not something that you pick and choose - those are not quality "settings", just how the game works.
+                                            이 단계들은 서로 선택하는 품질 preset이 아니라 게임이 거리에 따라 모두 사용하는 구조입니다.
                                         </p>
                                     </div>
 
-                                    Copy the settings for each LOD level from images below:
+                                    아래 이미지대로 각 LOD 단계의 설정을 적용합니다:
                                     <ul>
                                         <li><b>LOD 4</b>:</li>
                                         <div class="image-container width-60">
@@ -538,60 +538,60 @@
                         </div>
 
                         <div class="expander-top clickable" onclick="expandCard(this)">
-                            <h3>Settings Explanation</h3>
+                            <h3>설정 설명</h3>
                             <p>
                                 <img class="chevron" style="transform: rotateX(0deg);" src="img/UI/Chevron Down.svg" alt="UI element - Chevron">
                             </p>
                         </div>
                         <div class="expander-bottom">
-                            <h3>Objects:</h3>
+                            <h3>Objects</h3>
                             <ul>
-                                <li><strong>Atlas size</strong>: The <a href="https://en.wikipedia.org/wiki/Texture_atlas" target="_blank">atlas</a> is what contains all textures for the <b>Object LOD</b> meshes, increasing its size means that you can have more textures on the atlas (from the new resources) and they could also be higher resolution.
+                                <li><strong>Atlas size</strong>: <a href="https://en.wikipedia.org/wiki/Texture_atlas" target="_blank">atlas</a>는 <b>Object LOD</b> mesh에 사용하는 모든 texture를 모아 둔 이미지입니다. 크기를 늘리면 새 리소스의 texture를 더 많이 담거나 더 높은 해상도로 넣을 수 있습니다.
                                     <br>
-                                    Keep in mind that the tool will create this atlas with just the resolution it ends up needing (e.g. if you only need 1024x512 for your atlas, that will be the final resolution of it, what we set is simply the max allowed).
+                                    도구는 실제로 필요한 크기만큼만 atlas를 생성합니다. 예를 들어 필요한 크기가 1024x512라면 최종 atlas도 그 크기가 되며, 여기서 지정하는 값은 단지 허용되는 최대 크기입니다.
                                 </li>
-                                <li><strong>Max texture size</strong>: Object textures above this resolution will not be allowed on the atlas, 1024 suffices.</li>
+                                <li><strong>Max texture size</strong>: 이 값보다 큰 Object texture는 atlas에 포함되지 않습니다. 1024면 충분합니다.</li>
                             </ul>
 
                             <h3>Landscape</h3>
                             <ul>
-                                <li><strong>Protect borders</strong>: Prevents ugly terrain drops at the cell borders.</li>
-                                <li><strong>Size</strong>: 512 on LOD4 and 256 on the next levels will suffice for most cases (especially in a list such as TMR), but high resolutions and retextured terrain may benefit from higher settings. Note that this setting can increase the generation time and file size of the output considerably.</li>
-                                <li><strong>Bake normal-maps</strong>: Roughens the terrain LOD textures to match the actual terrain's normal map.</li>
-                                <li><strong>Mipmap</strong>: Mipmapping textures prevents <a href="https://en.wikipedia.org/wiki/Mipmap#/media/File:Mipmap_Aliasing_Comparison.png" target="_blank">pixel crawling artifacts</a> at a minor VRAM and storage utilization cost.</li>
-                                <li><strong>Quality</strong>: This controls the amount of detail in the LOD's geometry. Lower values have more detail and have a minor performance cost because of the amount of triangles in the mesh.</li>
-                                <li><strong>Optimize Unseen</strong>: Reduces the amount of triangles of geometry below a configurable height, this is meant to optimize unseen areas underwater.</li>
+                                <li><strong>Protect borders</strong>: Cell 경계에서 지형이 부자연스럽게 끊기거나 내려앉아 보이는 현상을 방지합니다.</li>
+                                <li><strong>Size</strong>: 대부분의 경우, 특히 TMR 같은 구성에서는 LOD4에 512, 이후 단계에 256이면 충분합니다. 고해상도 화면이나 지형 retexture를 사용한다면 더 높은 값이 유리할 수 있습니다. 다만 이 값은 생성 시간과 출력 파일 크기를 크게 늘릴 수 있습니다.</li>
+                                <li><strong>Bake normal-maps</strong>: 실제 지형의 normal map과 비슷하게 보이도록 Terrain LOD texture에 표면 굴곡 정보를 반영합니다.</li>
+                                <li><strong>Mipmap</strong>: 약간의 VRAM과 저장 공간을 사용하는 대신 texture의 <a href="https://en.wikipedia.org/wiki/Mipmap#/media/File:Mipmap_Aliasing_Comparison.png" target="_blank">pixel crawling artifact</a>를 줄입니다.</li>
+                                <li><strong>Quality</strong>: LOD geometry의 세부 정도를 조절합니다. 값이 낮을수록 mesh의 triangle 수가 많아져 더 세밀하지만 약간의 성능 비용이 있습니다.</li>
+                                <li><strong>Optimize Unseen</strong>: 지정한 높이 아래 geometry의 triangle 수를 줄여 물속처럼 보이지 않는 영역을 최적화합니다.</li>
                             </ul>
                         </div>
-                        <li>Click <strong>Generate</strong>.</li>
-                        <li>When complete, the log will stop and at the end you will see a message saying "<b>LOD generation done</b>", you can now close xLODGen.</li>
+                        <li><strong>Generate</strong>를 클릭합니다.</li>
+                        <li>완료되면 로그가 멈추고 마지막에 "<b>LOD generation done</b>" 메시지가 표시됩니다. 이제 xLODGen을 종료합니다.</li>
                     </ol>
                     </p>
                 </div>
 
                 <div class="card" id="InstallingLOD" title="Installing LOD">
-                    <h3>Installing the LOD</h3>
+                    <h3>LOD 설치</h3>
                     <p>
                     <ol>
-                        <li>In MO2, click the tiny wrench icon at the top, next to the mod counter, then click <strong>Create empty mod</strong>.</li>
-                        <li>Title the mod <strong>FO4LODGen Output</strong>.</li>
-                        <li>Navigate to where the LOD files were generated and select both the <code>textures</code> and <code>meshes</code> folders.</li>
-                        <li>Cut them to the <strong>FO4LODGen Output</strong> mod you just created (right-click on the mod and select <b>Open in Explorer)</b>.</li>
-                        <li>Press <strong>F5</strong> while you are on MO2 without any menu open, then make sure the new mod is enabled by ticking its checkbox.</li>
+                        <li>MO2 상단의 모드 개수 표시 옆에 있는 작은 wrench 아이콘을 클릭한 뒤 <strong>Create empty mod</strong>를 선택합니다.</li>
+                        <li>모드 이름을 <strong>FO4LODGen Output</strong>으로 지정합니다.</li>
+                        <li>LOD 파일이 생성된 위치로 이동해 <code>textures</code>와 <code>meshes</code> 폴더를 모두 선택합니다.</li>
+                        <li>두 폴더를 방금 만든 <strong>FO4LODGen Output</strong> 모드 폴더로 잘라내어 옮깁니다. 모드를 우클릭하고 <b>Open in Explorer</b>를 선택하면 폴더를 열 수 있습니다.</li>
+                        <li>MO2에서 메뉴가 열려 있지 않은 상태로 <strong>F5</strong>를 누른 뒤 새 모드의 체크박스를 켜 활성화합니다.</li>
                     </ol>
                     </p>
 
                     <div class="card-red">
                         <p>
-                            <b>IMPORTANT</b>:
+                            <b>중요</b>:
                             <br>
-                            Do not disable the LOD resources you installed previously, the game needs them for the LOD to work properly.
-                            <br>
-                            <br>
-                            Generated LOD must <u>always</u> be loaded last in your modlist!
+                            앞에서 설치한 LOD 리소스를 비활성화하지 마세요. 생성된 LOD가 정상적으로 작동하려면 해당 리소스가 필요합니다.
                             <br>
                             <br>
-                            If it happens to be overwritten by any mod, the LOD in-game will be broken.
+                            생성한 LOD는 모드 목록에서 <u>항상 가장 아래에 로드</u>되어야 합니다.
+                            <br>
+                            <br>
+                            다른 모드가 생성된 LOD를 덮어쓰면 인게임 LOD가 깨집니다.
                         </p>
                     </div>
                 </div>
@@ -611,7 +611,7 @@
         </div>
     </div>
 
-    <footer>ModdingLinked 2026</footer>
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
 
     <div id="image-overlay" class="overlay" hidden>
         <div class="image-container">
