@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/Coco/Head Logo Extended.webp">
 
-    <title>Finish | The Midnight Ride</title>
+    <title>확장 구성 마무리 | The Midnight Ride 한국어</title>
 
     <meta name="keywords" content="
     Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
@@ -24,15 +24,15 @@
     Tale of Two Wastelands, TTW,
     Skyrim Special Edition, Skyrim SE, SSE">
 
-    <meta name="description" content="Final steps necessary before playing the game.">
+    <meta name="description" content="TMR Extended 구성을 마치고 게임을 실행하기 전 마지막 단계를 안내합니다.">
     <meta http-equiv='content-language' content='ko-KR'>
     <meta name="twitter:card" value="summary_large_image">
     <meta property="og:site_name" content="The Midnight Ride 비공식 한국어 번역">
-    <meta property="og:title" content="The Midnight Ride">
+    <meta property="og:title" content="The Midnight Ride 한국어">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://themidnightride.moddinglinked.com">
     <meta property="og:image" content="https://themidnightride.moddinglinked.com/img/Others/Card.webp">
-    <meta property="og:description" content="Final steps necessary before playing the game.">
+    <meta property="og:description" content="TMR Extended 구성을 마치고 게임을 실행하기 전 마지막 단계를 안내합니다.">
 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#292c35">
     <meta name="darkreader-lock">
@@ -210,69 +210,44 @@
         <div class="content">
 
             <span id="ExtendedFinish" class="section">
-                <h2 onclick="location.href='#ExtendedFinish'">Extended Finish</h2>
+                <h2 onclick="location.href='#ExtendedFinish'">확장 구성 마무리</h2>
 
                 <div class="card" id="LoadOrder">
-                    <h3>Applying the Load Order</h3>
+                    <h3>로드 오더 적용</h3>
                     <p>
-                        The final step is to apply the load order of installed plugins. The guide comes with a premade load order file, which ensures all mods are being loaded in correct order, with all conflicts accounted for.
+                        마지막 단계는 설치한 플러그인의 로드 오더를 적용하는 것입니다. 가이드에서 제공하는 미리 구성된 로드 오더 파일을 사용하면 충돌 관계를 고려한 올바른 순서로 모드를 불러올 수 있습니다.
                     <ol>
-                        <li><strong>Download</strong> the TMR Load Order from <a onclick="downloadFile('https:\/\/raw.githubusercontent.com/ModdingLinked/The-Midnight-Ride/refs/heads/main/files/loadorder.txt')" style="cursor:pointer" title="loadorder.txt">here</a>.</li>
-                        <li>In MO2, click the <img class="mo2-icon" src="./img/MO2/Folders.webp" alt="MO2 folders"> button at the top of MO2 and click <strong>Open Profile folder</strong>.</li>
-                        <li><strong>Move loadorder.txt</strong> to the MO2 profile folder. You should get a popup message asking if you want to overwrite the existing file - click <strong>Yes</strong>.</li>
-                        <li>Press <strong>F5</strong> while you are on MO2 without any menu open.</li>
-                        <li>Right-click in the <b>right</b> pane of MO2 and select <strong>Enable all</strong>.</li>
+                        <li><strong>TMR Load Order</strong>를 <a onclick="downloadFile('./files/loadorder.txt')" style="cursor:pointer" title="loadorder.txt">여기</a>에서 다운로드합니다.</li>
+                        <li>MO2 상단의 <img alt="MO2 folders" class="mo2-icon" src="./img/MO2/Folders.webp"/> 버튼을 클릭한 뒤 <strong>Open Profile folder</strong>를 선택합니다.</li>
+                        <li><strong>loadorder.txt</strong>를 MO2 프로필 폴더로 옮깁니다. 기존 파일 덮어쓰기 여부를 묻는 창이 나오면 <strong>Yes</strong>를 누릅니다.</li>
+                        <li>MO2에서 메뉴가 열려 있지 않은 상태로 <strong>F5</strong>를 누릅니다.</li>
+                        <li>MO2 <b>오른쪽</b> 패널을 우클릭하고 <strong>Enable all</strong>을 선택합니다.</li>
                     </ol>
 
                     <div class="card-red">
-                        <p>
-                            Your load order (found under the <b>Plugins</b> tab in the <b>right</b> pane of MO2) should match the <b>loadorder.txt</b> file you just downloaded. You can ignore any plugins from mods that you may have skipped, but the order the remaining plugins are in should match the file.
-                            <br>
-                            <br>
-                            If that isn't the case, make sure to <strong>sort the load order by priority</strong> by clicking the <b>Priority</b> column header at the top.
-                            <br>
-                            <br>
-                            Join our <a href="https://discord.gg/S99Ary5eba" target="_blank">Discord</a> server for support, if needed.
-                        </p>
+                        <p>MO2 <b>오른쪽</b> 패널의 <b>Plugins</b> 탭에 표시되는 로드 오더가 방금 받은 <b>loadorder.txt</b>와 같아야 합니다. 설치하지 않은 모드의 플러그인은 없어도 되지만 남아 있는 플러그인의 순서는 파일과 일치해야 합니다.<br><br>다르다면 위쪽 <b>Priority</b> 열 머리글을 눌러 <strong>우선순위 기준으로 정렬</strong>했는지 확인하세요.<br><br>추가 지원이 필요하면 원작 <a href="https://discord.gg/S99Ary5eba" target="_blank">Discord</a>를 이용할 수 있습니다.</p>
                     </div>
 
                     </p>
                 </div>
 
                 <div class="card" id="RunningTheGame">
-                    <h3>Running the Game</h3>
-                    <p>
-                        Due to the way Mod Organizer 2 works, running programs through it is a requirement in order to load mods. This is done in the <strong>top-right corner</strong> of the manager, where the program to run is chosen. Here, <strong>select F4SE</strong>.
-                        <br>
-                        <br>
-                        For the sake of convenience you may also <strong>create a shortcut</strong> (right below the <b>Run</b> button) so that you won't have to manually open MO2 each time before playing.
-                        <br>
-                    <div class="image-container width-60">
-                        <img class="content-img" src="./img/Others/Start F4SE.webp" alt="Launching F4SE">
-                        <div class="resize-overlay expand"></div>
-                    </div>
-                    </p>
+                    <h3>게임 실행</h3>
+                    <p>Mod Organizer 2의 작동 방식상 모드를 불러오려면 프로그램을 MO2를 통해 실행해야 합니다. 오른쪽 위 실행 프로그램 선택 메뉴에서 <strong>F4SE</strong>를 선택합니다.<br><br>편의를 위해 <b>Run</b> 버튼 바로 아래에서 <strong>바로가기</strong>를 만들어두면 게임을 할 때마다 MO2를 직접 열 필요가 없습니다.<br/><div class="image-container width-60"><img alt="Launching F4SE" class="content-img" src="./img/Others/Start F4SE.webp"/><div class="resize-overlay expand"></div></div></p>
                 </div>
 
                 <div class="card" id="MCMConfiguration" title="MCM Configuration">
-                    <h3>MCM Configuration</h3>
-                    <p>
-                        Once you are in the game, head to the <b>Mod Configuration</b> menu and edit the various settings to your liking.
-                        <br>
-                        <br>
-                        You have now completed the entirety of The Midnight Ride and <strong>you can start playing</strong>. Have fun!
-                    </p>
+                    <h3>MCM 설정</h3>
+                    <p>게임에 들어간 뒤 <b>Mod Configuration</b> 메뉴에서 각 모드 설정을 취향에 맞게 조정합니다.<br><br>이제 The Midnight Ride 전체 구성을 마쳤습니다. <strong>게임을 시작해도 됩니다.</strong></p>
                 </div>
 
                 <div class="card" id="MoreContent">
-                    <h3>Want More?</h3>
+                    <h3>모드를 더 추가하고 싶다면</h3>
                     <p>
-                        More information <a href="./safe-modding.html" target="_blank">here</a>.
+                        모드를 추가할 때 지켜야 할 원칙은 <a href="./safe-modding.html" target="_blank">안전한 모딩</a> 페이지에서 확인하세요.
 
                     <div class="card-yellow">
-                        <p>
-                            We may not provide support for setups that have added mods, especially if you went overboard!
-                        </p>
+                        <p>가이드 밖의 모드를 추가한 구성은 원작 지원 대상에서 제외될 수 있습니다. 특히 많은 모드를 무리하게 추가한 경우에는 지원을 기대하기 어렵습니다.</p>
                     </div>
 
                     </p>
@@ -316,7 +291,7 @@
         </div>
     </div>
 
-    <footer>ModdingLinked 2026</footer>
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
 
     <div id="image-overlay" class="overlay" hidden>
         <div class="image-container">
