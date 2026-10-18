@@ -382,12 +382,12 @@
                 <div class="card" id="PreGen" title="사전 생성 LOD">
                     <p>
                     <h3 class="link-download"><a href="https://www.nexusmods.com/fallout4/mods/67185" target="_blank">Pre-Generated LOD</a></h3>
-                    Texture나 게임 월드에 별도 변경을 하지 않은 <strong>TMRE 모드리스트</strong>를 사용한다면 이 파일로 수동 LOD 생성을 건너뛸 수 있습니다. Object LOD와 Terrain LOD가 모두 포함되어 있으며 <b>Force LOD8</b>을 활성화해 생성된 파일입니다.
+                    텍스처나 게임 월드를 변경하지 않은 <strong>TMRE 모드리스트</strong>를 사용한다면 사전 생성된 파일로 수동 LOD 생성을 건너뛸 수 있습니다. Object LOD와 Terrain LOD 파일이 별도로 제공되며, Object LOD는 FOLIP의 <b>Force LOD8</b>을 활성화해 생성한 것입니다.
                     <br><br>
-                    일반 모드처럼 MO2에 설치한 뒤 앞에서 설치한 LOD 리소스 아래에 배치합니다. 앞의 리소스는 여전히 필요합니다. 마지막으로 다음 플러그인이 로드 오더에서 활성화되어 있는지 확인합니다:
+                    <strong>Pre-Generated Object LOD와 Pre-Generated Terrain LOD를 모두</strong> 일반 모드처럼 MO2에 설치합니다. 앞에서 설치한 LOD 리소스들은 그대로 유지하고, 두 LOD 모드를 그 아래에 배치하세요. 이어서 플러그인 로드 순서를 다음과 같이 설정합니다:
                     <ul>
-                        <li>FOLIP - Master.esm (ESM 중 가장 마지막)</li>
-                        <li>FOLIP - Patch.esp (로드 순서 맨 아래)</li>
+                        <li><span class="card-basic">FOLIP - Master.esm</span>은 <strong>ESM 플러그인 중 가장 마지막</strong>에 배치합니다.</li>
+                        <li><span class="card-basic">FOLIP - Patch.esp</span>는 로드 순서 맨 아래에 배치합니다.</li>
                     </ul>
                     </li>
                     </p>
@@ -429,7 +429,7 @@
                         <li>다운로드가 끝나면 압축을 원하는 위치에 풉니다. UAC 보호 폴더나 게임 폴더는 사용하지 마세요.</li>
                         <li>MO2 상단의 <img src="./img/MO2/Executables.webp" alt="MO2 executables"> 버튼을 클릭해 Executables 메뉴를 엽니다.</li>
                         <li>창 위쪽의 <strong style="color:rgb(20, 162, 228)">+</strong>를 클릭한 뒤 <strong>Add from file...</strong>을 선택합니다.</li>
-                        <li>팝업에서 TexGen 설치 위치로 이동해 <strong>TexGenx64.exe</strong>를 선택합니다.</li>
+                        <li>팝업에서 도구 압축을 푼 위치로 이동해 <strong>TexGenx64.exe</strong>를 선택합니다.</li>
                         <li>오른쪽 패널의 <b>Arguments</b>에 <span class="card-basic">-FO4</span>를 입력합니다.</li>
                         <li>MO2 오른쪽 위 Executables 드롭다운에서 TexGen을 선택하고 <b>Run</b>을 클릭합니다.</li>
                         <li>프로그램이 로드되면 <strong>Base Size</strong>를 <strong>256 (1440p)</strong>으로 설정합니다. Object LOD atlas 한계를 넘을 때 발생하는 게임 엔진의 mipmap 버그 때문에 더 높은 해상도는 지원하지 않습니다.</li>
@@ -450,7 +450,7 @@
                         <li>다운로드가 끝나면 Windows 기본 폴더 밖의 원하는 위치에 압축을 풉니다.</li>
                         <li>MO2 상단의 <img src="./img/MO2/Executables.webp" alt="MO2 executables" class="mo2-icon"> 버튼을 클릭해 Executables 메뉴를 엽니다.</li>
                         <li>창 위쪽의 <strong style="color:rgb(20, 162, 228)">+</strong>를 클릭한 뒤 <strong>Add from file...</strong>을 선택합니다.</li>
-                        <li>팝업에서 xLODGen 설치 위치로 이동해 <strong>xLODGenx64.exe</strong>를 선택합니다.</li>
+                        <li>팝업에서 도구 압축을 푼 위치로 이동해 <strong>xLODGenx64.exe</strong>를 선택합니다.</li>
                         <li>오른쪽 패널의 <b>Arguments</b>에 <span class="card-basic">-FO4 -O:"C:\Output"</span>을 입력합니다.</li>
 
                         <div class="card-green">
@@ -590,6 +590,45 @@
                             <br>
                             다른 모드가 생성된 LOD를 덮어쓰면 인게임 LOD가 깨집니다.
                         </p>
+                    </div>
+                </div>
+
+                <div class="card" id="PackingTerrainLOD" title="LOD BA2 압축">
+                    <h3>LOD 압축</h3>
+                    <p>
+                        이 단계는 선택 사항이지만 생성한 LOD를 최적화된 BA2 아카이브로 압축하면 게임이 LOD 리소스를 읽는 시간이 줄어들어, 새 지역에 진입할 때 발생하는 끊김을 완화할 수 있습니다.
+                    </p>
+                    <ol>
+                        <li><a href="https://www.nexusmods.com/skyrimspecialedition/mods/23316" target="_blank">Cathedral Assets Optimizer</a>를 다운로드합니다.</li>
+                        <li>다운로드한 압축 파일을 풉니다.</li>
+                        <li><strong>Cathedral_Assets_Optimizer.exe</strong>를 실행합니다.</li>
+                        <li>프로필을 <b>FO4</b>로 변경합니다.</li>
+                        <li><b>Create BSA</b>에 체크합니다. Fallout 4 프로필에서는 BA2 아카이브가 생성됩니다.</li>
+                        <li>MO2에서 <strong>FO4LODGen Output</strong> 모드를 우클릭하고 <b>Open in Explorer</b>를 선택합니다.</li>
+                        <li>열린 탐색기에서 해당 폴더 경로를 복사해 CAO의 프로필 선택 메뉴 바로 아래 경로 입력란에 붙여넣습니다.</li>
+                        <li><strong>Run</strong>을 클릭합니다.</li>
+                        <li>완료되면 CAO 화면 아래에 <b>Done</b> 메시지가 나타나는지 확인합니다.</li>
+                        <li>MO2에서 메뉴를 모두 닫고 <strong>F5</strong>로 목록을 새로고침한 뒤, 아카이브를 불러오는 새 플러그인이 로드 순서에서 활성화되어 있는지 확인합니다.</li>
+                    </ol>
+
+                    <div class="expander-top clickable important" onclick="expandCard(this)">
+                        <h3>BA2 사용 시 주의사항</h3>
+                        <img class="chevron" style="transform: rotateX(0deg);" src="img/UI/Chevron Down.svg" alt="UI element - Chevron">
+                    </div>
+                    <div class="expander-bottom">
+                        <p>BA2 파일을 정상적으로 사용하려면 다음 사항을 확인하세요.</p>
+                        <ul>
+                            <li>BA2 아카이브는 <strong>이름이 일치하는 플러그인</strong>을 통해 로드됩니다. 그래서 이 단계에서 만든 BA2 이름은 <b>FO4LODGen Output</b>으로 시작하며, 플러그인의 로드 순서에 따라 함께 로드됩니다.</li>
+                            <li>같은 플러그인에 속한 BA2 파일들은 Windows 파일 탐색기에서 <b>이름</b> 순서로 정렬했을 때와 같은 영숫자 순서로 로드됩니다.</li>
+                            <li><b>Archive Invalidation</b>으로 인해 BA2 내부 파일보다 압축되지 않은 일반 파일(loose files)이 우선합니다. 다른 모드가 추가하는 다음 폴더를 확인하세요.
+                                <ul>
+                                    <li><span class="card-basic">meshes&#92;terrain</span></li>
+                                    <li><span class="card-basic">textures&#92;terrain</span></li>
+                                </ul>
+                                필요하다면 MO2에서 해당 파일들을 숨겨 로드를 막을 수 있습니다.
+                                또한 <b>Mod Organizer 2 → Settings → Workarounds</b>에서 <b>Enable archives parsing</b>을 활성화하면 BA2 파일을 덮어쓰는 모드를 확인할 수 있습니다.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </span>
