@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/Coco/Head Logo.webp">
+
+    <title>한글 패치 | The Midnight Ride 한국어</title>
+
+    <meta name="keywords" content="
+    Mod, Modding, Mods, Guide, Mod Guide, Modding Guide, Resource, Resources,
+    Stable, Stability, Performance, Fix, Fixes, FPS,
+    Fast, Easy, Beginner,
+    Nexus, Nexus Mods, NexusMods,
+    Wabbajack, WJ, Installer,
+    Mod Manager, Mod Organizer, MO2,
+    Fallout, The Elder Scrolls, Bethesda, Bethesda Game Studios, BGS,
+    Fallout New Vegas, Fallout NV, New Vegas, FNV,
+    Fallout 4, FO4,
+    Tale of Two Wastelands, TTW,
+    Skyrim Special Edition, Skyrim SE, SSE">
+
+    <meta name="description" content="The Midnight Ride 비공식 한글 패쳐 다운로드와 Output 적용, MO2 활성화 및 업데이트 방법을 안내합니다.">
+    <meta http-equiv='content-language' content='ko-KR'>
+    <meta name="twitter:card" value="summary_large_image">
+    <meta property="og:site_name" content="The Midnight Ride 비공식 한국어 번역">
+    <meta property="og:title" content="한글 패치 | The Midnight Ride 한국어">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://munument1.github.io/-KR-The-Midnight-Ride/korean-patch.html">
+    <meta property="og:image" content="https://themidnightride.moddinglinked.com/img/Others/Modlist Card.webp">
+    <meta property="og:description" content="The Midnight Ride 비공식 한글 패쳐 다운로드와 Output 적용, MO2 활성화 및 업데이트 방법을 안내합니다.">
+
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#292c35">
+    <meta name="darkreader-lock">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <meta http-equiv='clear-site-data' content='cache'>
+
+    <script src="submodule/shared/js/vramDiff.js"></script>
+    <script src="submodule/shared/js/benchmarkCharts.js"></script>
+    <script src="submodule/shared/js/download.js"></script>
+    <script src="submodule/shared/js/expanders.js"></script>
+    <script src="submodule/shared/js/fpsCalculator.js"></script>
+    <script src="submodule/shared/js/highlight.js"></script>
+    <script src="submodule/shared/js/imageGallery.js"></script>
+    <script src="submodule/shared/js/imageSlider.js"></script>
+    <script src="submodule/shared/js/imageViewer.js"></script>
+    <script src="submodule/shared/js/javascript.js"></script>
+    <script src="submodule/shared/js/perfguide.js"></script>
+    <script src="submodule/shared/js/popup.js"></script>
+    <script src="submodule/shared/js/recommendPreset.js"></script>
+    <script src="kr-responsive-title.js"></script>
+    <script src="submodule/shared/js/sidebar.js"></script>
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body class="theme">
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="headerMenu" onclick="toggleNav()">
+                <img src="./img/UI/Navigation.svg" id="navButton">
+            </div>
+            <div class="headerTitle">
+                <img src="./img/Coco/Head Logo.webp" alt="Logo" id="logo">
+                <a href="./index.html" id="headerTitle" data-full-title="The Midnight Ride 한국어">The Midnight Ride 한국어</a>
+            </div>
+            <div class="guideLinks" id="headerLinks">
+                <a href="https://thebestoftimes.moddinglinked.com" target="_blank" rel="nofollow">Tale of Two Wastelands</a>
+                <a href="https://vivanewvegas.moddinglinked.com" target="_blank" rel="nofollow">Fallout: New Vegas</a>
+                <a href="https://dragonbornsfate.moddinglinked.com" target="_blank" rel="nofollow">Skyrim SE</a>
+            </div>
+        </div>
+        <div class="sidebar left-sidebar">
+            <p class="pageLinks">
+                <a href="./index.html" title="홈">
+                    홈
+                </a>
+
+                <a href="./intro.html" title="소개">
+                    소개
+                </a>
+
+                <a href="./setup.html" title="초기 설정">
+                    초기 설정
+                </a>
+
+                <a href="./mo2.html" title="MO2">
+                    Mod Organizer 2
+                </a>
+
+                <a href="./utilities.html" title="유틸리티">
+                    유틸리티
+                </a>
+
+                <a href="./bugfix.html" title="버그 수정">
+                    버그 수정
+                </a>
+
+                <a href="./basefinish.html" title="기본 구성 마무리">
+                    기본 구성 마무리
+                </a>
+            </p>
+            <hr>
+            <p class="pageLinks">
+                <a href="./hud.html" title="사용자 인터페이스">
+                    사용자 인터페이스
+                </a>
+                <a href="./tweaks.html" title="설정 조정">
+                    설정 조정
+                </a>
+                <a href="./gameplay.html" title="게임플레이">
+                    게임플레이
+                </a>
+                <a href="./content.html" title="콘텐츠">
+                    콘텐츠
+                </a>
+                <a href="./visuals.html" title="비주얼">
+                    비주얼
+                </a>
+                <a href="./finish.html" title="확장 구성 마무리">
+                    확장 구성 마무리
+                </a>
+            </p>
+            <hr>
+            <p>
+                <a href="./kr-changelog.html" title="KR 변경사항">
+                    KR 변경사항
+                </a>
+                <a href="./upstream-changelog.html" title="원본 변경사항">
+                    원본 변경사항
+                </a>
+
+                <a href="./resources.html" title="자료">
+                    자료
+                </a>
+
+                <a href="./esl.html" title="Light Plugins" class="sublink">
+                    Light Plugins (라이트 플러그인)
+                </a>
+
+                <a href="./lod.html" title="LOD 가이드" class="sublink">
+                    LOD 가이드
+                </a>
+
+                <a href="./faq.html" title="FAQ">
+                    FAQ
+                </a>
+
+                <a href="./safe-modding.html" title="안전한 모딩">
+                    안전한 모딩
+                </a>
+
+                <a href="./wabbajack.html" title="Wabbajack">
+                    Wabbajack
+                </a>
+                <a href="./korean-patch.html" title="한글 패치">한글 패치</a>
+            </p>
+            <p class="sidebar-padder"></p>
+            <hr>
+            <p class="sidebar-bottom">
+                <a href="./intro.html#Introduction" title="가이드">
+                    가이드
+                </a>
+                <a href="./faq.html" title="FAQ">
+                    FAQ
+                </a>
+                <a href="./resources.html" title="자료">
+                    자료
+                </a>
+                <a href="./kr-changelog.html" title="KR 변경사항">
+                    KR 변경사항
+                </a>
+                <a href="https://themidnightride.moddinglinked.com/" target="_blank" rel="nofollow" title="원본 가이드">
+                    원본 가이드
+                </a>
+                <a href="https://discord.gg/S99Ary5eba" target="_blank" rel="nofollow" title="원작 Discord">
+                    원작 Discord
+                </a>
+                <a title="원작자 후원" class="popup-button" id="donation-button" onclick="openPopup(this, donation)">
+                    원작자 후원
+                </a>
+                <a href="https://github.com/munument1/-KR-The-Midnight-Ride" target="_blank" title="한국어 저장소">
+                    한국어 저장소
+                </a>
+            </p>
+        </div>
+
+        <div class="card popup" id="donation">
+            <p class="kr-donation-note">
+                이 링크는 한국어 번역 프로젝트 후원이 아니라 원작 ModdingLinked 제작자 후원으로 연결됩니다.
+            </p>
+            <ul>
+                <li>
+                    <a href="https://www.patreon.com/moddinglinked" target="_blank" rel="nofollow">Patreon</a>
+                </li>
+                <li>
+                    <a href="https://www.paypal.me/Ungeziefi" target="_blank" rel="nofollow">PayPal</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <section id="KoreanPatch" class="section">
+                <h2 onclick="location.href='#KoreanPatch'">한글 패치</h2>
+                <div class="card" id="Overview" title="적용 전 확인">
+                    <h3>적용 전 확인</h3>
+                    <p>The Midnight Ride 설치를 마쳤다면 <strong>TMR 비공식 한국어 패쳐</strong>로 본편·DLC와 지원되는 TMR 모드에 한국어 번역을 적용할 수 있습니다. Wabbajack 설치와 수동 설치 모두 같은 방법으로 진행합니다.</p>
+                    <p>이 패쳐는 한국어 가이드와 함께 제공하는 별도 도구이며, ModdingLinked 또는 The Midnight Ride 제작진의 공식 도구가 아닙니다. <strong>Fallout 4 영문판 기반의 TMR 환경</strong>을 대상으로 합니다.</p>
+                    <ol>
+                        <li><a href="./wabbajack.html">Wabbajack 설치 및 설정</a> 또는 수동 가이드의 설치 과정을 먼저 마칩니다.</li>
+                        <li>MO2에서 플레이할 프로필을 선택합니다. 패쳐는 <strong>현재 선택한 프로필</strong>의 활성 모드를 기준으로 번역 파일을 만듭니다.</li>
+                        <li>게임과 MO2를 종료합니다.</li>
+                    </ol>
+                </div>
+                <div class="card" id="Download" title="패쳐 다운로드">
+                    <h3>1. 패쳐 다운로드</h3>
+                    <ol>
+                        <li><a href="https://github.com/munument1/The-Midnight-Ride-KR-Patcher/releases/latest" target="_blank" rel="noopener">최신 한글 패쳐 다운로드</a> 페이지를 엽니다.</li>
+                        <li><strong>Assets</strong>에서 <code>TMR-Korean-Patcher-v버전.zip</code>을 받습니다. 현재 안내 기준은 <a href="https://github.com/munument1/The-Midnight-Ride-KR-Patcher/releases/tag/v1.0.4" target="_blank" rel="noopener">v1.0.4</a>입니다. <strong>Source code</strong>는 실행용 패키지가 아닙니다.</li>
+                        <li>ZIP 전체를 별도 폴더에 압축 해제합니다. <code>TMR-Korean-Patcher.exe</code>, <code>TranslationData</code>, <code>FO4_AE_1.11.191.Kor</code>를 함께 유지하세요. 본편 한국어 리소스는 이미 포함되어 있습니다.</li>
+                    </ol>
+                </div>
+                <div class="card" id="GenerateOutput" title="Output 생성">
+                    <h3>2. Output 생성</h3>
+                    <ol>
+                        <li><code>TMR-Korean-Patcher.exe</code>를 실행합니다.</li>
+                        <li><strong>찾아보기</strong>로 <code>ModOrganizer.ini</code>가 있는 <strong>TMR MO2 루트 폴더</strong>를 선택합니다. 예: <code>C:\Modlists\TMR</code></li>
+                        <li><strong>Output 생성</strong>을 누르고 완료될 때까지 기다립니다.</li>
+                        <li><strong>Output 폴더 열기</strong>로 방금 생성된 결과를 엽니다. 기존 Output이 있으면 <code>Output-날짜-시간</code> 이름으로 새 결과가 생성됩니다.</li>
+                    </ol>
+                    <div class="card-yellow"><p>이 단계에서는 설치된 모드를 직접 수정하지 않습니다. 오류가 발생하면 적용을 멈추고 표시된 내용을 확인하세요. 게임의 <code>Data</code>나 MO2의 <code>mods</code> 폴더를 입력 경로로 선택하면 안 됩니다.</p></div>
+                </div>
+            </section>
+            <section id="ApplyPatch" class="section">
+                <h2 onclick="location.href='#ApplyPatch'">번역 적용 및 실행</h2>
+                <div class="card" id="CopyOutput" title="결과 복사">
+                    <h3>3. 결과를 TMR에 복사</h3>
+                    <ol>
+                        <li>방금 생성한 <strong>Output 안의 <code>mods</code> 폴더</strong>를 TMR MO2 루트에 복사합니다. <code>overwrite</code> 폴더도 생성됐다면 함께 복사합니다.</li>
+                        <li>같은 이름의 폴더는 병합하고, 같은 이름의 파일은 <strong>덮어쓰기</strong>를 허용합니다.</li>
+                    </ol>
+                    <p>예를 들어 출력 파일이 <code>Output\mods\모드명\파일</code>이라면, 복사 후 경로는 <code>C:\Modlists\TMR\mods\모드명\파일</code>이 됩니다. <strong>Output 폴더 자체를 복사하거나 게임 Data 폴더에 넣지 마세요.</strong></p>
+                    <p>본편 번역은 새 모드 <code>FO4 KOREAN</code>으로 추가되고, TMR 모드 번역은 기존 각 모드 폴더의 파일을 덮어씁니다. 패쳐 ZIP을 MO2에 모드로 설치하는 방식은 아닙니다.</p>
+                </div>
+                <div class="card" id="EnableAndLaunch" title="MO2 활성화와 게임 실행">
+                    <h3>4. MO2에서 활성화</h3>
+                    <ol>
+                        <li>MO2를 열고 적용할 프로필에서 왼쪽 모드 목록의 <strong>FO4 KOREAN</strong>을 체크합니다.</li>
+                        <li><strong>우선순위 오름차순</strong> 정렬 기준으로 FO4 KOREAN을 목록 맨 아래에 배치하여 한국어 리소스가 다른 모드보다 우선하도록 합니다.</li>
+                        <li>MO2를 통해 <strong>F4SE</strong>로 게임을 실행하고 메뉴·자막·MCM의 한국어 표시를 확인합니다.</li>
+                    </ol>
+                    <p>별도의 <code>TMR KOREAN</code> 모드는 생성되지 않습니다. 번역 적용만을 위해 오른쪽 플러그인 목록의 로드 순서를 바꿀 필요는 없습니다. 다른 프로필을 사용하려면 해당 프로필 기준으로도 패쳐를 실행하고 FO4 KOREAN을 활성화하세요.</p>
+                </div>
+            </section>
+            <section id="UpdatesAndNotes" class="section">
+                <h2 onclick="location.href='#UpdatesAndNotes'">업데이트와 참고사항</h2>
+                <div class="card" id="Reapply" title="TMR 업데이트 후 재적용">
+                    <h3>TMR 업데이트 후 재적용</h3>
+                    <p>Wabbajack으로 목록을 업데이트하거나 모드를 다시 설치하면 번역한 파일이 영문 원본으로 교체될 수 있습니다. <strong>TMR 업데이트를 마친 뒤 최신 패쳐로 Output을 다시 생성</strong>하고 위 순서대로 복사·활성화하세요. 예전 Output을 새 버전 모드에 그대로 덮어쓰지 마세요.</p>
+                    <p>과거 패치로 문자열 자체가 <code>???</code>로 저장된 파일은 폰트를 바꿔도 복구되지 않습니다. 문제가 있는 모드의 공식 원본을 복원한 다음 최신 패쳐를 적용하세요. 사용자 프로필·설정·세이브를 삭제할 필요는 없습니다.</p>
+                </div>
+                <div class="card" id="KnownLimitations" title="알려진 제한과 문의">
+                    <h3>알려진 제한과 문의</h3>
+                    <ul>
+                        <li>현 내장 폰트에는 <strong>겍·됬 등 일부 한글 음절</strong>이 없어 글자가 빠질 수 있습니다.</li>
+                        <li>과거 문제 제보에 대한 예방 조치로 <strong>지몬자 관련 일부 장소명은 영문을 유지</strong>합니다.</li>
+                        <li>외부 문자열 테이블을 쓰는 localized 플러그인은 현재 번역 대상에서 제외되며 경고에 표시될 수 있습니다.</li>
+                        <li>v1.0.4는 사용자 플레이에서 한국어 표시와 확인한 구간의 지형이 정상으로 보고됐습니다. 모든 지역과 장시간 플레이의 안정성을 보증하는 것은 아닙니다.</li>
+                    </ul>
+                    <p>버전별 변경사항과 상세 제한은 <a href="https://github.com/munument1/The-Midnight-Ride-KR-Patcher/releases/latest" target="_blank" rel="noopener">릴리즈 노트</a>에서 확인하세요. 번역 오류나 적용 문제는 <a href="https://github.com/munument1/The-Midnight-Ride-KR-Patcher/issues" target="_blank" rel="noopener">한글 패쳐 이슈</a>에 패쳐 버전, TMR 프로필, 오류 내용과 함께 알려주세요.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="sidebar right-sidebar">
+            <p id="sidebarContent">
+            </p>
+        </div>
+    </div>
+
+    <footer>ModdingLinked 2026 · 비공식 한국어 번역</footer>
+
+    <div id="image-overlay" class="overlay" hidden>
+        <div class="image-container">
+            <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+            <div class="resize-overlay shrink"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
