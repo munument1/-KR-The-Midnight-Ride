@@ -24,3 +24,9 @@
 원본 가이드의 **2026년 10월 18일 변경 기록부터** 한국어 번역을 반영합니다. 이전 원본 변경 기록은 소급 번역하지 않고 유지합니다. 앞으로 새로 공개되는 원본 변경 기록도 한국어로 반영합니다.
 
 한국어판 자체의 변경 사항은 `kr-changelog.html`에 기록합니다. 원본 업데이트의 한국어 변경 기록은 왼쪽 사이드바에서 **KR 변경사항 바로 아래에 배치한 [원본 변경사항](upstream-changelog.html)** 페이지에서 확인할 수 있습니다. `changelog.html`의 원본 전체 변경 이력도 기존대로 유지합니다.
+
+## 게임 한글 패치
+
+Wabbajack 또는 수동 가이드 설치 후 [한글 패치 적용 안내](https://munument1.github.io/-KR-The-Midnight-Ride/korean-patch.html)를 따라 한국어 번역을 적용할 수 있습니다. 왼쪽 메뉴의 **Wabbajack 바로 아래 한글 패치**에서도 열 수 있습니다.
+
+실행 파일은 [TMR 비공식 한국어 패쳐 최신 릴리즈](https://github.com/munument1/The-Midnight-Ride-KR-Patcher/releases/latest)에서 다운로드합니다.
